@@ -9,6 +9,8 @@ and trains the residual model once, then keeps them in memory.
 """
 
 import warnings
+from pathlib import Path
+
 warnings.filterwarnings("ignore")
 
 import numpy as np
@@ -19,6 +21,8 @@ from scipy.integrate import solve_ivp
 from scipy.optimize import least_squares
 from sklearn.ensemble import ExtraTreesRegressor
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_PATH = PROJECT_ROOT / "data" / "train_dataset.csv"
 R = 8.314
 
 FEATURES = [
@@ -79,7 +83,7 @@ def new_et():
 
 
 print("Loading training data and fitting model (delta-learning hybrid)...")
-tr = pd.read_csv("../data/train_dataset.csv")
+tr = pd.read_csv(DATA_PATH)
 y = tr["overall_yield"].values
 
 KINETICS_PARAMS = fit_kinetics(tr, y)
@@ -110,13 +114,13 @@ def predict_one(inputs: dict) -> float:
     return float(pred[0])
 
 
-app = Flask(__name__, static_folder="..", static_url_path="")
+app = Flask(__name__, static_folder=str(Path(__file__).resolve().parent), static_url_path="")
 CORS(app)
 
 
 @app.route("/")
 def home():
-    return app.send_static_file("app/index.html")
+    return app.send_static_file("index.html")
 
 
 @app.route("/predict", methods=["POST"])
