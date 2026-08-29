@@ -1,7 +1,9 @@
 # Reactor Yield Predictor
 
 Physics-informed ML web app for predicting reactor yield in a non-isothermal packed-bed reactor. The solution combines an Arrhenius-based PFR kinetics model with an ExtraTrees residual correction, producing fast predictions suitable for interactive use in a live demo.
-# live demo https://modelmakerz.netlify.app/
+
+ live demo https://modelmakerz.netlify.app/
+ 
 ## Problem
 
 The reactor system is a series reaction network of the form A → B → C in a non-isothermal plug-flow reactor. The yield of the intermediate product B depends on the interaction between residence time, thermal profile, and operating conditions such as feed rate, concentration, reactor length, and jacket temperature.
