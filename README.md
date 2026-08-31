@@ -2,7 +2,6 @@
 
 Physics-informed ML web app for predicting reactor yield in a non-isothermal packed-bed reactor. The solution combines an Arrhenius-based PFR kinetics model with an ExtraTrees residual correction, producing fast predictions suitable for interactive use in a live demo.
 
- live demo https://modelmakerz.netlify.app/
  
 ## Problem
 
