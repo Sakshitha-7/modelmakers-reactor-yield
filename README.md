@@ -25,7 +25,7 @@ This structure keeps the model physically grounded while still capturing systema
 
 The official hackathon leaderboard result for this model was:
 
-- Rank: 36 out of 384 teams
+- Rank: 36 out of 384 teams at IIT kharagpur
 - RMSE: 12.9029
 - MAE: 5.9045
 - R²: 0.8719
